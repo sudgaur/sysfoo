@@ -16,6 +16,11 @@ pipeline {
     }
 
     stage('package') {
+      when {
+        changeRequest {
+          target 'master'
+        }
+      }
       steps {
         echo 'generating artifacts...'
         sh 'mvn package -DskipTests'
