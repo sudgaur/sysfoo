@@ -17,7 +17,7 @@ pipeline {
 
     stage('package') {
       when {
-        changeRequest target: 'master'
+        branch 'master'
       }
       steps {
         echo 'generating artifacts...'
