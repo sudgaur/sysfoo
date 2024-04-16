@@ -16,6 +16,9 @@ pipeline {
     }
 
     stage('package') {
+      when {
+        branch 'master'
+      }
       steps {
         echo 'generating artifacts...'
         sh 'mvn package -DskipTests'
